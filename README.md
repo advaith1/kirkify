@@ -18,7 +18,7 @@ It also comes with a docker compose file if you want to use that.
 docker compose up -d --build
 ```
 
-And you're done. I should note that on the compose file that it hosts on port 37910. If you want to change this, change the docker compose file.
+And you're done. I should note that on the compose file that it hosts on port 3000. If you want to change this, change the docker compose file.
 
 ### Direct Build
 
