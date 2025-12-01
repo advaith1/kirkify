@@ -1,0 +1,20 @@
+name: Build
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build
+        run: docker build -t ghcr.io/advaith1/kirkify:${{github.sha}} .
+      - name: Push
+        run: docker push ghcr.io/advaith1/kirkify:${{github.sha}}
